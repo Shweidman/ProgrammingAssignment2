@@ -1,7 +1,8 @@
-## This function takes as input a matrix "x" and returns as output a list of four things:
+## This function takes as input a matrix "x" and returns as output a list of four functions:
 ## 1. A function "set" which simply sets the vale of the matrix and the value of the inverse to "NULL".
 ## 2. A function "get" which simply 'gets' the matrix.
-## 3. 
+## 3. A function "setinverse" which just sets i equal to the inverse of x
+## 4. A function "getinverse" which just gets the inverse of x and labels it i
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
