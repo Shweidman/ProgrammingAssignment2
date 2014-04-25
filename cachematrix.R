@@ -13,28 +13,31 @@ makeCacheMatrix <- function(x = matrix()) {
                 x <<- y
                 i <<- NULL
         }
-        ## This function doesn't do anything, just returns x
+        ## This function doesn't do anything, just returns x:
         get <- function() x
-        ## This function sets i equal to the inverse of x
+        ## This function sets i equal to the inverse of x:
         setinverse <- function(solve) i <<- solve
-        ## This function calculated the inverse of x and 
+        ## This function just gets the inverse of x, labelled i:
         getinverse <- function() i
-        ## This function just gets the inverse of x, labelled i
+        ## Finally, the function returns a list of these four functions:
         list(set = set, get = get,
                 setinverse = setinverse,
                 getinverse = getinverse)
 }
   
   
-  ## Write a short comment describing this function
+  ## This function checks whether an inverse has been calculated, and if not, calculates it.
   
 cacheinverse <- function(x, ...) {
+        ## First get the inverse of a matrix if it already exists
         i <- x$getinverse()
+        ## if it exists, return the inverse
         if(!is.null(i)) {
-                message("getting dat $cache$ data")
+                message("getting that $cache$ data")
                 return(i)
         }
-                data <- x$get()
+        ## if it does not exist, calculate the inverse and return it        
+        data <- x$get()
         i <- solve(data, ...)
         x$setinverse(i)
         i
